@@ -1,0 +1,20 @@
+@import "tailwindcss";
+
+:root {
+  /* colors */
+  --clr-black : 230, 35%, 7%;
+  --clr-blue: 231, 77%, 90%;
+  --clr-whtie: 0, 0, 100%; 
+}
+
+/* fonts */
+
+.font-bellefair {
+  font-family: "Bellefair", serif;
+}
+.font-condensed {
+  font-family: "Barlow Condensed", sans-serif;
+}
+.font-barlow {
+  font-family: "Barlow", sans-serif;
+}
