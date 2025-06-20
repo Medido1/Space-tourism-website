@@ -1,0 +1,33 @@
+import { useState } from "react";
+import bgMobile from "../assets/home/background-home-mobile.jpg";
+import Header  from "./Header";
+
+function HomePage() {
+  const [bgImg, setBgImg] = useState(bgMobile)
+  return (
+    <div
+      style={{backgroundImage: `url(${bgImg})`}}
+      className="p-8 min-h-screen bg-cover bg-center text-white
+      "
+    >
+      <Header />
+      <div className="mt-10">
+        <h1 className="text-center text-xl text-[hsl(var(--clr-blue))] uppercase tracking-widest 
+        font-condensed mb-4"> 
+          So, you want to travel to
+        <span className="text-8xl block text-white mt-8 font-bellefair">Space</span></h1>
+        <p className="text-center text-lg/8 text-[hsl(var(--clr-blue))] font-condensed">
+          Let’s face it; if you want to go to space, you might as well genuinely go to 
+          outer space and not hover kind of on the edge of it. Well sit back, and relax 
+          because we’ll give you a truly out of this world experience!
+        </p>
+        <button className="flex justify-center items-center px-10 py-16
+          rounded-[50%] aspect-square text-black bg-white mt-40 mx-auto text-lg">
+          <a className="uppercase tracking-widest" href="">Explore</a>
+        </button>
+      </div>
+    </div>
+  )
+}
+
+export default HomePage;
