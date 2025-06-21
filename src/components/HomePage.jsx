@@ -1,12 +1,29 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import bgMobile from "../assets/home/background-home-mobile.jpg";
+import bgTablet from "../assets/home/background-home-tablet.jpg";
+import bgDesktop from "../assets/home/background-home-desktop.jpg";
 import Header  from "./Header";
 import MobileMenu from "./MobileMenu"
 import { GlobalContext } from "../context/GlobalContext";
 
 function HomePage() {
-  const {isMenuOpen, setIsMenuOpen, isMobile} = useContext(GlobalContext);
-  const [bgImg, setBgImg] = useState(bgMobile)
+  const {isMobile,  isTablet} = useContext(GlobalContext);
+  const [bgImg, setBgImg] = useState(()=> {
+    if (isMobile) return bgMobile;
+    if (isTablet) return bgTablet;
+    return bgDesktop;
+  })
+     
+  useEffect(() => {
+    if (isMobile) {
+      setBgImg(bgMobile)
+    } else if (isTablet) {
+      setBgImg(bgTablet) 
+    } else {
+      setBgImg(bgDesktop)
+    }
+  }, [isMobile, isTablet])
+
   return (
     <div
       style={{backgroundImage: `url(${bgImg})`}}
