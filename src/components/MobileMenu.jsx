@@ -1,28 +1,45 @@
+import { GlobalContext } from "../context/GlobalContext";
+import { useContext } from "react";
+
 function MobileMenu() {
+  const {isMobile} = useContext(GlobalContext)
+
+  const mobileMenuStyle = `min-h-screen w-[70vw] backdrop-blur-lg
+    absolute top-0 bottom-0 right-0 z-0 text-2xl`
+  const mobileNavStyle = `pt-[30vh] pl-8 flex flex-col gap-4`
+  const mobileSpanStyle = `font-bold mr-4 tracking-widest`
+  const mobileLinkStyle = `text-white  uppercase tracking-widest font-condensed pb-4`
+
+  const tabMenuStyle = `w-[80vw] right-0 absolute top-0 px-4 pt-8
+      z-0 text-lg bg-[hsl(var(--clr-blue)_/_0.1)]`
+  const tabNavStyle  = `flex gap-8`
+  const tabSpanStyle = `font-bold mr-2 tracking-widest`
+  const tabLinkStyle = `text-white uppercase tracking-widest font-condensed 
+          relative pb-8`
+
   return (
-    <div className="min-h-screen w-[70vw] backdrop-blur-lg
-      absolute top-0 bottom-0 right-0 z-0
-      ">
-      <nav className="pt-[30vh] pl-4 flex flex-col gap-4">
+    <div className={isMobile ? mobileMenuStyle : tabMenuStyle}>
+      <nav className={isMobile ? mobileNavStyle : tabNavStyle}>
         <a 
-          className="text-white text-2xl uppercase tracking-widest font-condensed"
-          href="">
-          <span className="font-bold mr-4 tracking-widest">00</span>Home
+          className={`${isMobile ? mobileLinkStyle : tabLinkStyle} border-b-2`}
+          href="#">
+          {isMobile && 
+          <span className={isMobile ? mobileSpanStyle : tabSpanStyle}>00</span>}Home
         </a>
         <a 
-          className="text-white text-2xl uppercase tracking-widest font-condensed"
+          className={isMobile ? mobileLinkStyle : tabLinkStyle}
           href="">
-          <span className="font-bold mr-4 tracking-widest">01</span>Destination
+          <span className={isMobile ? mobileSpanStyle : tabSpanStyle}>01</span>Destination
         </a>
         <a 
-          className="text-white text-2xl uppercase tracking-widest font-condensed"
+          className={isMobile ? mobileLinkStyle : tabLinkStyle}
           href="">
-          <span className="font-bold mr-4 tracking-widest">01</span>Crew
+          <span className={isMobile ? mobileSpanStyle : tabSpanStyle}>02</span>Crew
         </a>
         <a 
-          className="text-white text-2xl uppercase tracking-widest font-condensed"
+          className={isMobile ? mobileLinkStyle : tabLinkStyle}
           href="">
-          <span className="font-bold mr-4 tracking-widest">01</span>Technology
+          <span className={isMobile ? mobileSpanStyle : tabSpanStyle}>03</span>Technology
         </a>
       </nav>
     </div>

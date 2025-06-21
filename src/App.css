@@ -2,9 +2,9 @@
 
 :root {
   /* colors */
-  --clr-black : 230, 35%, 7%;
-  --clr-blue: 231, 77%, 90%;
-  --clr-whtie: 0, 0, 100%; 
+  --clr-black : 230 35% 7%;
+  --clr-blue: 231 77% 90%;
+  --clr-whtie: 0 0 100%; 
 }
 
 /* fonts */

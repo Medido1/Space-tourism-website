@@ -5,18 +5,20 @@ import { GlobalContext } from "../context/GlobalContext";
 import { useContext } from "react";
 
 function Header(){
-  const {isMenuOpen, setIsMenuOpen} = useContext(GlobalContext);
+  const {isMenuOpen, setIsMenuOpen, isMobile} = useContext(GlobalContext);
   return (
     <header>
       <div className="flex justify-between items-center relative">
         <img src={logo} alt="space tourism logo" />
-        <button 
-          onClick={() => setIsMenuOpen(!isMenuOpen)} 
-          className="z-1" 
-        >
-          <img 
-            src={isMenuOpen ? iconClose : iconHamburger} alt="open menu button" />
-        </button>
+        {isMobile && 
+          <button 
+            onClick={() => setIsMenuOpen(!isMenuOpen)} 
+            className="z-1" 
+          >
+            <img 
+              src={isMenuOpen ? iconClose : iconHamburger} alt="open menu button" />
+          </button>
+        }
       </div>
     </header>
   )
