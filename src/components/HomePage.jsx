@@ -1,36 +1,8 @@
-import { useState, useContext, useEffect } from "react";
-import bgMobile from "../assets/home/background-home-mobile.jpg";
-import bgTablet from "../assets/home/background-home-tablet.jpg";
-import bgDesktop from "../assets/home/background-home-desktop.jpg";
-import Header  from "./Header";
 import MobileMenu from "./MobileMenu"
-import { GlobalContext } from "../context/GlobalContext";
 
 function HomePage() {
-  const {isMobile,  isTablet} = useContext(GlobalContext);
-  const [bgImg, setBgImg] = useState(()=> {
-    if (isMobile) return bgMobile;
-    if (isTablet) return bgTablet;
-    return bgDesktop;
-  })
-     
-  useEffect(() => {
-    if (isMobile) {
-      setBgImg(bgMobile)
-    } else if (isTablet) {
-      setBgImg(bgTablet) 
-    } else {
-      setBgImg(bgDesktop)
-    }
-  }, [isMobile, isTablet])
-
   return (
-    <div
-      style={{backgroundImage: `url(${bgImg})`}}
-      className="p-8 min-h-screen bg-cover bg-center text-white relative lg:p-10
-      "
-    >
-      <Header />
+    <div>
       <div className="mt-10 sm:mt-20 flex flex-col items-center
         lg:mt-[7%] 2xl:mt-[14%] lg:flex-row lg:justify-between lg:px-[10%] lg:pb-[5%]">
         <div>
@@ -51,7 +23,6 @@ function HomePage() {
           <a className="uppercase tracking-widest" href="">Explore</a>
         </button>
       </div>
-      <MobileMenu />
     </div>
   )
 }
