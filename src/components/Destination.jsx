@@ -6,6 +6,10 @@ function Destination() {
   const {data} = useContext(GlobalContext)
   const destinations = data?.destinations || [];
 
+  useEffect(() => {
+    console.log(destinations)
+  }, [])
+
   const [currentPlanet, setCurrentPlanet] = useState(destinations[0]);
 
   useEffect(() => {
@@ -71,6 +75,41 @@ function Destination() {
         >
           {currentPlanet.description}
         </motion.p>
+      </AnimatePresence>
+      <div className="border-1 border-gray-600 w-full my-[10%]"></div>
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={currentPlanet.distance + "-desc"}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.4, delay: 0.2 }}
+          className="flex flex-col"
+        >
+          <p className="uppercase text-center text-xl font-condensed text-[hsl(var(--clr-blue))]">
+            Avg. distance
+          </p>
+          <p className="text-4xl font-bellefair uppercase my-[10%]">
+            {currentPlanet.distance}
+          </p>
+        </motion.div>
+      </AnimatePresence>
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={currentPlanet.travel + "-desc"}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.4, delay: 0.2 }}
+          className="flex flex-col"
+        >
+          <p className="uppercase text-center text-xl font-condensed text-[hsl(var(--clr-blue))]">
+            est.travel time
+          </p>
+          <p className="text-4xl font-bellefair uppercase my-[10%]">
+            {currentPlanet.travel}
+          </p>
+        </motion.div>
       </AnimatePresence>
     </div>
   )
