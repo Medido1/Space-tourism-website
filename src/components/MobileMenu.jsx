@@ -16,7 +16,7 @@ function MobileMenu() {
   const tabNavStyle  = `flex gap-8`
   const tabSpanStyle = `font-bold mr-2 tracking-widest`
   const tabLinkStyle = `text-white uppercase tracking-widest font-condensed 
-    relative pb-8`;
+    relative pb-8 hover:border-b-2`;
 
   const desktopMenuStyle = `w-[60vw] xl:w-[44%] right-0 absolute top-[4%] 
   bg-[hsl(var(--clr-blue)_/_0.1)] backdrop-blur-lg pl-[10%] pt-8`;
