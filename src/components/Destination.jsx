@@ -30,7 +30,7 @@ function Destination() {
           key={currentPlanet.name}
           src={currentPlanet.images.webp}
           alt={currentPlanet.name}
-          className="w-[60%] mt-[20%] sm:mb-[2%]"
+          className="w-[60%] md:w-[40%] mt-[20%] sm:mb-[2%]"
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.9 }}
@@ -81,9 +81,9 @@ function Destination() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.4, delay: 0.2 }}
-            className="flex flex-col"
+            className="flex flex-col text-center"
           >
-            <p className="uppercase text-center text-xl font-condensed text-[hsl(var(--clr-blue))]">
+            <p className="uppercase text-xl font-condensed text-[hsl(var(--clr-blue))]">
               Avg. distance
             </p>
             <p className="text-4xl font-bellefair uppercase my-[10%]">
@@ -98,9 +98,9 @@ function Destination() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.4, delay: 0.2 }}
-            className="flex flex-col"
+            className="flex flex-col text-center"
           >
-            <p className="uppercase text-center text-xl font-condensed text-[hsl(var(--clr-blue))]">
+            <p className="uppercase text-xl font-condensed text-[hsl(var(--clr-blue))]">
               est.travel time
             </p>
             <p className="text-4xl font-bellefair uppercase my-[10%]">
