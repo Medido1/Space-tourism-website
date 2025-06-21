@@ -7,6 +7,15 @@ export const GlobalProvider = ({children}) => {
   const [isTablet, setIsTablet] = useState(window.innerWidth > 640 && window.innerWidth <= 768)
   const [isDesktop, setIsDesktop] = useState(window.innerWidth > 768)
 
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    fetch('/data.json')
+      .then((res) => res.json())
+      .then((json) => setData(json))
+      .catch((error) => console.log("fetch error:", error))
+  },[])
+
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth <= 640) {
@@ -31,7 +40,8 @@ export const GlobalProvider = ({children}) => {
 
   return (
     <GlobalContext.Provider value={{
-      isMenuOpen, setIsMenuOpen, isMobile, isTablet, isDesktop
+      isMenuOpen, setIsMenuOpen, isMobile, isTablet, isDesktop, setIsMenuOpen,
+      data
     }}>
       {children}
     </GlobalContext.Provider>

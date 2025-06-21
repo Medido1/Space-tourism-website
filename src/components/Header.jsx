@@ -1,6 +1,6 @@
-import logo from "../assets/shared/logo.svg";
-import iconClose from "../assets/shared/icon-close.svg";
-import iconHamburger from "../assets/shared/icon-hamburger.svg";
+import logo from "/assets/shared/logo.svg";
+import iconClose from "/assets/shared/icon-close.svg";
+import iconHamburger from "/assets/shared/icon-hamburger.svg"
 import { GlobalContext } from "../context/GlobalContext";
 import { useContext } from "react";
 

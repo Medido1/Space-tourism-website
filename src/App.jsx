@@ -4,7 +4,8 @@ import { lazy, Suspense } from 'react';
 import Layout from './components/Layout';
 
 function App() {
-  const HomePage = lazy(() => import('./components/HomePage'))
+  const HomePage = lazy(() => import('./components/HomePage'));
+  const Destination = lazy(() => import('./components/Destination'));
 
   return (
     <Router>
@@ -12,6 +13,7 @@ function App() {
           <Routes>
             <Route path='/' element={<Layout/>}>
               <Route index element={<HomePage />}/>
+              <Route path='/destination' element={<Destination/>}/>
             </Route>
           </Routes>
         </Suspense>

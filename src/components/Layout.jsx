@@ -1,13 +1,17 @@
 import Header from "./Header";
 import { GlobalContext } from "../context/GlobalContext";
-import bgHomeMobile from "../assets/home/background-home-mobile.jpg";
-import bgHomeTablet from "../assets/home/background-home-tablet.jpg";
-import bgHomeDesktop from "../assets/home/background-home-desktop.jpg";
 import { useContext, useEffect, useState } from "react";
 import { useLocation, Outlet } from "react-router-dom";
 import MobileMenu from "./MobileMenu";
 
-function Layout({children}) {
+import bgHomeMobile from "/assets/home/background-home-mobile.jpg";
+import bgHomeTablet from "/assets/home/background-home-tablet.jpg";
+import bgHomeDesktop from "/assets/home/background-home-desktop.jpg";
+import bgDestiMobile from "/assets/destination/background-destination-mobile.jpg";
+import bgDestiTab from "/assets/destination/background-destination-tablet.jpg";
+import bgDestiDesktop from "/assets/destination/background-destination-desktop.jpg"
+
+function Layout() {
   const {pathname} = useLocation()
   const { isMobile, isTablet } = useContext(GlobalContext);
   const [bgImage, setBgImage] = useState("");
@@ -20,6 +24,12 @@ function Layout({children}) {
       : isTablet
       ? bgHomeTablet
       :bgHomeDesktop
+    } else if (pathname === "/destination"){
+      img = isMobile 
+      ? bgDestiMobile
+      : isTablet
+      ? bgDestiTab
+      :bgDestiDesktop
     }
 
     setBgImage(img)
@@ -29,7 +39,6 @@ function Layout({children}) {
         style={{backgroundImage: `url(${bgImage})`}} 
         className="p-8 min-h-screen bg-cover bg-center text-white relative lg:p-10
       ">
-        
         <Header />
         <Outlet />
         <MobileMenu />

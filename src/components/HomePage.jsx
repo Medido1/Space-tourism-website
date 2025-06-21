@@ -1,5 +1,3 @@
-import MobileMenu from "./MobileMenu"
-
 function HomePage() {
   return (
     <div>

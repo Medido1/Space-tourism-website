@@ -1,9 +1,10 @@
 import { GlobalContext } from "../context/GlobalContext";
 import { useContext } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
 
 function MobileMenu() {
-  const {isMobile, isMenuOpen,isTablet,  isDesktop} = useContext(GlobalContext)
+  const {isMobile, isMenuOpen,isTablet,  isDesktop, setIsMenuOpen} = useContext(GlobalContext)
 
   const mobileMenuStyle = `min-h-screen backdrop-blur-lg w-[70vw]
     absolute top-0 bottom-0 right-0 z-0 text-2xl`
@@ -41,17 +42,19 @@ function MobileMenu() {
         className={currentMenuStyle}
       >
           <nav className={currentNavStyle}>
-            <a
+            <Link
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
               className={`${currentLinkStyle} ${isMobile ? "" : "border-b-2"}`}
-              href="#">
+              to="/">
               {(isMobile || isDesktop )&&
               <span className={currentSpanStyle}>00</span>}Home
-            </a>
-            <a
+            </Link>
+            <Link
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
               className={currentLinkStyle}
-              href="">
+              to="/destination">
               <span className={currentSpanStyle}>01</span>Destination
-            </a>
+            </Link>
             <a
               className={currentLinkStyle}
               href="">
