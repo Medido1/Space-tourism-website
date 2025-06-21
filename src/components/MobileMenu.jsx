@@ -17,29 +17,34 @@ function MobileMenu() {
   const tabLinkStyle = `text-white uppercase tracking-widest font-condensed 
           relative pb-8`
 
+  const currentMenuStyle = isMobile ? mobileMenuStyle : tabMenuStyle;
+  const currentNavStyle = isMobile ? mobileNavStyle : tabNavStyle;
+  const currentLinkStyle = isMobile ? mobileLinkStyle : tabLinkStyle;
+  const currentSpanStyle = isMobile ? mobileSpanStyle : tabSpanStyle;
+          
   return (
-    <div className={isMobile ? mobileMenuStyle : tabMenuStyle}>
-      <nav className={isMobile ? mobileNavStyle : tabNavStyle}>
+    <div className={currentMenuStyle}>
+      <nav className={currentNavStyle}>
         <a 
-          className={`${isMobile ? mobileLinkStyle : tabLinkStyle} border-b-2`}
+          className={`${currentLinkStyle} ${isMobile ? "" : "border-b-2"}`}
           href="#">
           {isMobile && 
-          <span className={isMobile ? mobileSpanStyle : tabSpanStyle}>00</span>}Home
+          <span className={currentSpanStyle}>00</span>}Home
         </a>
         <a 
-          className={isMobile ? mobileLinkStyle : tabLinkStyle}
+          className={currentLinkStyle}
           href="">
-          <span className={isMobile ? mobileSpanStyle : tabSpanStyle}>01</span>Destination
+          <span className={currentSpanStyle}>01</span>Destination
         </a>
         <a 
-          className={isMobile ? mobileLinkStyle : tabLinkStyle}
+          className={currentLinkStyle}
           href="">
-          <span className={isMobile ? mobileSpanStyle : tabSpanStyle}>02</span>Crew
+          <span className={currentSpanStyle}>02</span>Crew
         </a>
         <a 
-          className={isMobile ? mobileLinkStyle : tabLinkStyle}
+          className={currentLinkStyle}
           href="">
-          <span className={isMobile ? mobileSpanStyle : tabSpanStyle}>03</span>Technology
+          <span className={currentSpanStyle}>03</span>Technology
         </a>
       </nav>
     </div>
