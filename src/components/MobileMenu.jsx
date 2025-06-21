@@ -1,10 +1,9 @@
 import { GlobalContext } from "../context/GlobalContext";
 import { useContext } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { animate } from "motion";
 
 function MobileMenu() {
-  const {isMobile, isMenuOpen} = useContext(GlobalContext)
+  const {isMobile, isMenuOpen,isTablet,  isDesktop} = useContext(GlobalContext)
 
   const mobileMenuStyle = `min-h-screen backdrop-blur-lg w-[70vw]
     absolute top-0 bottom-0 right-0 z-0 text-2xl`
@@ -18,7 +17,15 @@ function MobileMenu() {
   const tabSpanStyle = `font-bold mr-2 tracking-widest`
   const tabLinkStyle = `text-white uppercase tracking-widest font-condensed 
     relative pb-8`;
-  const currentMenuStyle = isMobile ? mobileMenuStyle : tabMenuStyle;
+
+  const desktopMenuStyle = `w-[60vw] xl:w-[44%] right-0 absolute top-[4%] 
+  bg-[hsl(var(--clr-blue)_/_0.1)] backdrop-blur-lg pl-[10%] pt-8`;
+  
+  const currentMenuStyle = isMobile 
+  ? mobileMenuStyle 
+  : isTablet
+  ? tabMenuStyle
+  : desktopMenuStyle;
   const currentNavStyle = isMobile ? mobileNavStyle : tabNavStyle;
   const currentLinkStyle = isMobile ? mobileLinkStyle : tabLinkStyle;
   const currentSpanStyle = isMobile ? mobileSpanStyle : tabSpanStyle;
@@ -37,7 +44,7 @@ function MobileMenu() {
             <a
               className={`${currentLinkStyle} ${isMobile ? "" : "border-b-2"}`}
               href="#">
-              {isMobile &&
+              {(isMobile || isDesktop )&&
               <span className={currentSpanStyle}>00</span>}Home
             </a>
             <a
