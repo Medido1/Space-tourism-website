@@ -1,10 +1,12 @@
 import { GlobalContext } from "../context/GlobalContext";
 import { useContext } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { animate } from "motion";
 
 function MobileMenu() {
-  const {isMobile} = useContext(GlobalContext)
+  const {isMobile, isMenuOpen} = useContext(GlobalContext)
 
-  const mobileMenuStyle = `min-h-screen w-[70vw] backdrop-blur-lg
+  const mobileMenuStyle = `min-h-screen backdrop-blur-lg w-[70vw]
     absolute top-0 bottom-0 right-0 z-0 text-2xl`
   const mobileNavStyle = `pt-[30vh] pl-8 flex flex-col gap-4`
   const mobileSpanStyle = `font-bold mr-4 tracking-widest`
@@ -15,39 +17,47 @@ function MobileMenu() {
   const tabNavStyle  = `flex gap-8`
   const tabSpanStyle = `font-bold mr-2 tracking-widest`
   const tabLinkStyle = `text-white uppercase tracking-widest font-condensed 
-          relative pb-8`
-
+    relative pb-8`;
   const currentMenuStyle = isMobile ? mobileMenuStyle : tabMenuStyle;
   const currentNavStyle = isMobile ? mobileNavStyle : tabNavStyle;
   const currentLinkStyle = isMobile ? mobileLinkStyle : tabLinkStyle;
   const currentSpanStyle = isMobile ? mobileSpanStyle : tabSpanStyle;
           
   return (
-    <div className={currentMenuStyle}>
-      <nav className={currentNavStyle}>
-        <a 
-          className={`${currentLinkStyle} ${isMobile ? "" : "border-b-2"}`}
-          href="#">
-          {isMobile && 
-          <span className={currentSpanStyle}>00</span>}Home
-        </a>
-        <a 
-          className={currentLinkStyle}
-          href="">
-          <span className={currentSpanStyle}>01</span>Destination
-        </a>
-        <a 
-          className={currentLinkStyle}
-          href="">
-          <span className={currentSpanStyle}>02</span>Crew
-        </a>
-        <a 
-          className={currentLinkStyle}
-          href="">
-          <span className={currentSpanStyle}>03</span>Technology
-        </a>
-      </nav>
-    </div>
+    <AnimatePresence>
+      {(isMenuOpen || !isMobile) && 
+        <motion.div 
+        initial={{ x: 100, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        exit={{ x: 100, opacity: 0, transition: { duration: 0.6, ease: "easeInOut" } }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className={currentMenuStyle}
+      >
+          <nav className={currentNavStyle}>
+            <a
+              className={`${currentLinkStyle} ${isMobile ? "" : "border-b-2"}`}
+              href="#">
+              {isMobile &&
+              <span className={currentSpanStyle}>00</span>}Home
+            </a>
+            <a
+              className={currentLinkStyle}
+              href="">
+              <span className={currentSpanStyle}>01</span>Destination
+            </a>
+            <a
+              className={currentLinkStyle}
+              href="">
+              <span className={currentSpanStyle}>02</span>Crew
+            </a>
+            <a
+              className={currentLinkStyle}
+              href="">
+              <span className={currentSpanStyle}>03</span>Technology
+            </a>
+          </nav>
+        </motion.div>}
+    </AnimatePresence>
   )
 }
 

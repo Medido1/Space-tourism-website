@@ -29,7 +29,7 @@ function HomePage() {
           <a className="uppercase tracking-widest" href="">Explore</a>
         </button>
       </div>
-      {(isMenuOpen || !isMobile) && <MobileMenu />}
+      <MobileMenu />
     </div>
   )
 }
