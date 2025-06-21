@@ -1,13 +1,16 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import bgMobile from "../assets/home/background-home-mobile.jpg";
 import Header  from "./Header";
+import MobileMenu from "./MobileMenu"
+import { GlobalContext } from "../context/GlobalContext";
 
 function HomePage() {
+  const {isMenuOpen, setIsMenuOpen} = useContext(GlobalContext);
   const [bgImg, setBgImg] = useState(bgMobile)
   return (
     <div
       style={{backgroundImage: `url(${bgImg})`}}
-      className="p-8 min-h-screen bg-cover bg-center text-white
+      className="p-8 min-h-screen bg-cover bg-center text-white relative
       "
     >
       <Header />
@@ -26,6 +29,7 @@ function HomePage() {
           <a className="uppercase tracking-widest" href="">Explore</a>
         </button>
       </div>
+      {isMenuOpen && <MobileMenu />}
     </div>
   )
 }

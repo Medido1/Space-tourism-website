@@ -1,9 +1,9 @@
 function MobileMenu() {
   return (
-    <div className="min-h-screen w-[60vw] backdrop-blur-lg
-      absolute top-0 right-0 z-0
+    <div className="min-h-screen w-[70vw] backdrop-blur-lg
+      absolute top-0 bottom-0 right-0 z-0
       ">
-      <nav className="pt-[25vh] pl-2 flex flex-col gap-4">
+      <nav className="pt-[30vh] pl-4 flex flex-col gap-4">
         <a 
           className="text-white text-2xl uppercase tracking-widest font-condensed"
           href="">
