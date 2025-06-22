@@ -13,7 +13,7 @@ import bgDestiDesktop from "/assets/destination/background-destination-desktop.j
 import bgCrewMobile from "/assets/crew/background-crew-mobile.jpg";
 import bgCrewTab from "/assets/crew/background-crew-tablet.jpg";
 import bgCrewDesk from "/assets/crew/background-crew-desktop.jpg";
-import bgTechMoble from "/assets/technology/background-technology-mobile.jpg";
+import bgTechMobile from "/assets/technology/background-technology-mobile.jpg";
 import bgTechTab from "/assets/technology/background-technology-tablet.jpg";
 import bgTechDesk from "/assets/technology/background-technology-desktop.jpg"
 
@@ -22,36 +22,34 @@ function Layout() {
   const { isMobile, isTablet } = useContext(GlobalContext);
   const [bgImage, setBgImage] = useState("");
 
-  useEffect(() => {
-    let img;
-    if (pathname === "/"){
-      img = isMobile 
-      ? bgHomeMobile
-      : isTablet
-      ? bgHomeTablet
-      :bgHomeDesktop
-    } else if (pathname === "/destination"){
-      img = isMobile 
-      ? bgDestiMobile
-      : isTablet
-      ? bgDestiTab
-      :bgDestiDesktop
-    } else if (pathname === "/crew"){
-      img = isMobile 
-      ? bgCrewMobile
-      : isTablet 
-      ? bgCrewTab
-      :bgCrewDesk
-    } else if (pathname === "/technology") {
-      img = isMobile
-      ? bgTechMoble
-      : isTablet 
-      ? bgTechTab
-      : bgTechDesk
-    }
+  const backgrounds = {
+    "/": {
+      mobile: bgHomeMobile,
+      tablet: bgHomeTablet,
+      desktop: bgHomeDesktop,
+    },
+    "/destination": {
+      mobile: bgDestiMobile,
+      tablet: bgDestiTab,
+      desktop: bgDestiDesktop,
+    },
+    "/crew": {
+      mobile: bgCrewMobile,
+      tablet: bgCrewTab,
+      desktop: bgCrewDesk,
+    },
+    "/technology": {
+      mobile: bgTechMobile,
+      tablet: bgTechTab,
+      desktop: bgTechDesk,
+    },
+  };
 
-    setBgImage(img)
-  }, [pathname, isMobile, isTablet])
+  useEffect(() => {
+    const device = isMobile ? "mobile" : isTablet ? "tablet" : "desktop";
+    const img = backgrounds[pathname]?.[device] || "";
+    setBgImage(img);
+  }, [pathname, isMobile, isTablet]);
   return (
     <div
         style={{backgroundImage: `url(${bgImage})`}} 

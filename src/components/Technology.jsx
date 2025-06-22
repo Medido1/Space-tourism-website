@@ -30,7 +30,7 @@ function Technology() {
           />
           <div className="flex flex-col items-center px-4 relative lg:w-[50%] lg:mt-[10%]">
             <ul className="flex gap-4 lg:flex-col lg:items-center lg:gap-2 lg:w-[10%]
-              absolute left-0 top-0">
+              lg:absolute left-0 top-0">
               {tech.map((techno, index) => (
                 <li
                   key={techno.name}
