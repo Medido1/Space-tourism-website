@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 function Destination() {
   const {data} = useContext(GlobalContext)
   const destinations = data?.destinations || [];
+  
 
   const [currentPlanet, setCurrentPlanet] = useState(destinations[0]);
 

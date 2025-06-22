@@ -46,22 +46,22 @@ function MobileMenu() {
           <nav className={currentNavStyle}>
             <Link
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className={`${currentLinkStyle} ${pathname === "/" ? "border-b-2" : ""} `}
+              className={`${currentLinkStyle} ${pathname === "/" && !isMobile ? "border-b-2" : ""} `}
               to="/">
               {(isMobile || isDesktop )&&
               <span className={currentSpanStyle}>00</span>}Home
             </Link>
             <Link
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className={`${currentLinkStyle} ${pathname === "/destination" ? "border-b-2" : ""}`}
+              className={`${currentLinkStyle} ${pathname === "/destination" && !isMobile ? "border-b-2" : ""}`}
               to="/destination">
               <span className={currentSpanStyle}>01</span>Destination
             </Link>
-            <a
-              className={currentLinkStyle}
-              href="">
+            <Link
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className={`${currentLinkStyle} ${pathname === "/crew" && !isMobile ? "border-b-2" : ""}`}              to="/crew">
               <span className={currentSpanStyle}>02</span>Crew
-            </a>
+            </Link>
             <a
               className={currentLinkStyle}
               href="">

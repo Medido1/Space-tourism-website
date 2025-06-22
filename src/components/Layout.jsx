@@ -9,7 +9,10 @@ import bgHomeTablet from "/assets/home/background-home-tablet.jpg";
 import bgHomeDesktop from "/assets/home/background-home-desktop.jpg";
 import bgDestiMobile from "/assets/destination/background-destination-mobile.jpg";
 import bgDestiTab from "/assets/destination/background-destination-tablet.jpg";
-import bgDestiDesktop from "/assets/destination/background-destination-desktop.jpg"
+import bgDestiDesktop from "/assets/destination/background-destination-desktop.jpg";
+import bgCrewMobile from "/assets/crew/background-crew-mobile.jpg";
+import bgCrewTab from "/assets/crew/background-crew-tablet.jpg";
+import bgCrewDesk from "/assets/crew/background-crew-desktop.jpg"
 
 function Layout() {
   const {pathname} = useLocation()
@@ -30,6 +33,12 @@ function Layout() {
       : isTablet
       ? bgDestiTab
       :bgDestiDesktop
+    } else if (pathname === "/crew"){
+      img = isMobile 
+      ? bgCrewMobile
+      : isTablet 
+      ? bgCrewTab
+      :bgCrewDesk
     }
 
     setBgImage(img)
