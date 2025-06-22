@@ -1,5 +1,5 @@
 import { GlobalContext } from "../context/GlobalContext";
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
 

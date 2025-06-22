@@ -14,9 +14,9 @@ function Destination() {
     }
   }, [destinations])
 
-  const mobileNavStyle = `flex gap-4 mt-[20%] lg:mt-[10%]`;
+  const mobileNavStyle = `flex gap-4 mt-[20%] lg:mt-0 `;
   const mobileLinkStyle = `text-[hsl(var(--clr-blue))] text-lg uppercase
-   tracking-widest font-condensed pb-2 hover:border-b-3 lg:mb-[2%]`
+   tracking-widest font-condensed pb-2 hover:border-b-3 lg:mb-[2%] lg:mt-0`
   const activeClass = `text-white border-b-3`
 
   return (
@@ -26,13 +26,13 @@ function Destination() {
         <span className="mr-6 text-gray-600">01</span>
         Pick your destination
       </h2>
-      <div className="lg:flex lg:justify-center lg:gap-32 lg:w-full">
+      <div className="lg:flex lg:justify-center lg:gap-36 lg:w-full">
         <AnimatePresence mode="wait">
           <motion.img
             key={currentPlanet.name}
             src={currentPlanet.images.webp}
             alt={currentPlanet.name}
-            className="w-[60%] md:w-[40%] lg:w-[30%] mt-[20%] sm:mb-[2%] lg:mt-[4%]"
+            className="w-[60%] md:w-[40%] lg:w-[30%] xl:w-[26%] mt-[20%] sm:mb-[2%] lg:mb-[6%] lg:mt-0"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.9 }}
@@ -68,7 +68,7 @@ function Destination() {
             <motion.p
               key={currentPlanet.name + "-desc"}
               className="max-w-[50ch] text-center text-xl font-condensed text-[hsl(var(--clr-blue))]
-                lg:text-left"
+                lg:text-left lg:text-lg"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
