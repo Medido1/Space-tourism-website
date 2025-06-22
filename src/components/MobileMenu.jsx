@@ -32,6 +32,14 @@ function MobileMenu() {
   const currentNavStyle = isMobile ? mobileNavStyle : tabNavStyle;
   const currentLinkStyle = isMobile ? mobileLinkStyle : tabLinkStyle;
   const currentSpanStyle = isMobile ? mobileSpanStyle : tabSpanStyle;
+
+  const navItems = [
+    { path: "/", label: "Home", index: "00" },
+    { path: "/destination", label: "Destination", index: "01" },
+    { path: "/crew", label: "Crew", index: "02" },
+    { path: "/technology", label: "Technology", index: "03" },
+  ];
+  
           
   return (
     <AnimatePresence>
@@ -44,30 +52,17 @@ function MobileMenu() {
         className={currentMenuStyle}
       >
           <nav className={currentNavStyle}>
-            <Link
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className={`${currentLinkStyle} ${pathname === "/" && !isMobile ? "border-b-2" : ""} `}
-              to="/">
-              {(isMobile || isDesktop )&&
-              <span className={currentSpanStyle}>00</span>}Home
-            </Link>
-            <Link
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className={`${currentLinkStyle} ${pathname === "/destination" && !isMobile ? "border-b-2" : ""}`}
-              to="/destination">
-              <span className={currentSpanStyle}>01</span>Destination
-            </Link>
-            <Link
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className={`${currentLinkStyle} ${pathname === "/crew" && !isMobile ? "border-b-2" : ""}`}              to="/crew">
-              <span className={currentSpanStyle}>02</span>Crew
-            </Link>
-            <Link
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className={`${currentLinkStyle} ${pathname === "/technology" && !isMobile ? "border-b-2" : ""}`}
-              to="/technology">
-              <span className={currentSpanStyle}>03</span>Technology
-            </Link>
+            {navItems.map(({ path, label, index }) => (
+              <Link
+                key={path}
+                to={path}
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className={`${currentLinkStyle} ${pathname === path && !isMobile ? "border-b-2" : ""}`}
+              >
+                {(isMobile || isDesktop) && <span className={currentSpanStyle}>{index}</span>}
+              {label}
+              </Link>
+            ))}
           </nav>
         </motion.div>}
     </AnimatePresence>
