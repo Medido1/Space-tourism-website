@@ -13,7 +13,8 @@ function Header(){
         {isMobile && 
           <button 
             onClick={() => setIsMenuOpen(!isMenuOpen)} 
-            className="z-1" 
+            className="z-10" 
+            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           >
             <img 
               src={isMenuOpen ? iconClose : iconHamburger} alt="open menu button" />
