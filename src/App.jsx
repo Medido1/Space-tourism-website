@@ -15,9 +15,10 @@ function App() {
           <Routes>
             <Route path='/' element={<Layout/>}>
               <Route index element={<HomePage />}/>
-              <Route path='/destination' element={<Destination />}/>
-              <Route path='/crew' element={<Crew />}/>
-              <Route path='/technology' element={<Technology />}/>
+              <Route path='destination' element={<Destination />}/>
+              <Route path='crew' element={<Crew />}/>
+              <Route path='technology' element={<Technology />}/>
+              <Route path="*" element={<div className="text-black p-10">Page Not Found</div>} />
             </Route>
           </Routes>
         </Suspense>
