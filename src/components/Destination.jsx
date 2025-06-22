@@ -39,7 +39,7 @@ function Destination() {
             transition={{ duration: 0.5 }}
           />
         </AnimatePresence>
-        <div>
+        <div className="flex flex-col items-center lg:items-start">
           <ul className={mobileNavStyle}>
             {destinations.map((planet, index) => (
               <li
@@ -55,7 +55,7 @@ function Destination() {
           <AnimatePresence mode="wait">
             <motion.h2
               key={currentPlanet.name + "-title"}
-              className="text-6xl lg:text-8xl font-bellefair uppercase my-[8%] lg:my-[4%]"
+              className="text-center text-6xl lg:text-8xl font-bellefair uppercase my-[8%] lg:my-[4%]"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
