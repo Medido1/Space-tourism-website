@@ -32,7 +32,7 @@ function Destination() {
             key={currentPlanet.name}
             src={currentPlanet.images.webp}
             alt={currentPlanet.name}
-            className="mx-auto w-[60%] md:w-[40%] lg:w-[30%] xl:w-[26%] mt-[20%] sm:mb-[2%] lg:mb-[6%] lg:mt-0"
+            className="mx-auto lg:mx-0 w-[60%] md:w-[40%] lg:w-[30%] xl:w-[26%] mt-[20%] sm:mb-[2%] lg:mb-[6%] lg:mt-0"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.9 }}
