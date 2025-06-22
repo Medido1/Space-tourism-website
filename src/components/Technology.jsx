@@ -7,6 +7,13 @@ function Technology() {
   const tech = data?.technology || [];
   const [currentTech, setCurrentTech] = useState(tech[0]);
 
+  const animation = {
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0 },
+  exit: { opacity: 0, y: -20 },
+  transition: { duration: 0.5, ease: "easeInOut", delay: .2 },
+  }
+
   return (
     <div  className="flex flex-col items-center mt-[20%] lg:mt-0">
       <h2 className="text-center font-condensed lg:self-start text-2xl 
@@ -18,10 +25,7 @@ function Technology() {
         <motion.div
           className="mt-[20%] lg:mt-[10%] lg:w-[100%]  lg:flex lg:flex-row-reverse"
           key={currentTech.name}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -20 }}
-          transition={{ duration: 0.5, ease: "easeInOut", delay: .2 }}
+          {...animation}
         >
           <img 
             className="w-screen object-cover mb-[10%] max-h-[500px] lg:w-[40%]"
@@ -34,11 +38,12 @@ function Technology() {
               {tech.map((techno, index) => (
                 <li
                   key={techno.name}
-                  onClick={() => setCurrentTech(tech[index])}
+                  onClick={() => setCurrentTech(techno)}
+                  aria-label={`Select ${techno.name}`}
                   className= {`px-4 py-2 aspect-square rounded-[50%] mb-[20%] border-gray-100
                     border-1 cursor-pointer hover:border-3 text-lg font-bellefair
                     flex justify-center items-center lg:px-8 lg:py-4
-                    ${currentTech.name === techno.name ? "bg-white text-black" : "bg-trasparent"} `}
+                    ${currentTech.name === techno.name ? "bg-white text-black" : "bg-transparentt"} `}
                 >
                   {index + 1}
                 </li>
