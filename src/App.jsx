@@ -7,6 +7,7 @@ function App() {
   const HomePage = lazy(() => import('./components/HomePage'));
   const Destination = lazy(() => import('./components/Destination'));
   const Crew = lazy(() => import('./components/Crew'));
+  const Technology = lazy(() =>import('./components/Technology'));
 
   return (
     <Router>
@@ -16,6 +17,7 @@ function App() {
               <Route index element={<HomePage />}/>
               <Route path='/destination' element={<Destination />}/>
               <Route path='/crew' element={<Crew />}/>
+              <Route path='/technology' element={<Technology />}/>
             </Route>
           </Routes>
         </Suspense>

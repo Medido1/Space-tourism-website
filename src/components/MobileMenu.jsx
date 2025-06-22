@@ -62,11 +62,11 @@ function MobileMenu() {
               className={`${currentLinkStyle} ${pathname === "/crew" && !isMobile ? "border-b-2" : ""}`}              to="/crew">
               <span className={currentSpanStyle}>02</span>Crew
             </Link>
-            <a
+            <Link
               className={currentLinkStyle}
-              href="">
+              to="/technology">
               <span className={currentSpanStyle}>03</span>Technology
-            </a>
+            </Link>
           </nav>
         </motion.div>}
     </AnimatePresence>

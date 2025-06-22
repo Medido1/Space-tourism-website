@@ -36,7 +36,7 @@ function Crew() {
             </h1>
             <p
               className="max-w-[50ch] text-center text-xl font-condensed text-[hsl(var(--clr-blue))]
-                  lg:text-left lg:text-lg xl:text-xl sm:mb-[10%] lg:mb-[20%]"
+                  lg:text-left lg:text-lg xl:text-xl mb-[10%] lg:mb-[20%]"
             >
               {currentCrewMember.bio}
             </p>
