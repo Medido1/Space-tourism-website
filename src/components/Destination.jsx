@@ -20,6 +20,13 @@ function Destination() {
    tracking-widest font-condensed pb-2 hover:border-b-3 lg:mb-[2%] lg:mt-0`
   const activeClass = `text-white border-b-3`
 
+  const animation = {
+    initial:{ opacity: 0, scale: 0.9 },
+    animate:{ opacity: 1, scale: 1 },
+    exit:{ opacity: 0, scale: 0.9 },
+    transition:{ duration: 0.5 }
+  }
+
   return (
     <div className="flex flex-col items-center mt-[20%] lg:mt-[4%]">
       <h2 className="sm:self-start font-condensed  text-2xl uppercase text-gray-200 tracking-widest
@@ -34,18 +41,15 @@ function Destination() {
             src={currentPlanet.images.webp}
             alt={currentPlanet.name}
             className="mx-auto lg:mx-0 w-[60%] md:w-[40%] lg:w-[30%] xl:w-[26%] mt-[20%] sm:mb-[2%] lg:mb-[6%] lg:mt-0"
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.9 }}
-            transition={{ duration: 0.5 }}
+            {...animation}
           />
         </AnimatePresence>
         <div className="flex flex-col items-center lg:items-start">
           <ul className={mobileNavStyle}>
-            {destinations.map((planet, index) => (
+            {destinations.map((planet) => (
               <li
                 key={planet.name}
-                onClick={() => setCurrentPlanet(destinations[index])}
+                onClick={() => setCurrentPlanet(planet)}
                 className={`${mobileLinkStyle}  ${currentPlanet.name === planet.name ? activeClass : ''}
                   cursor-pointer`}
               >
@@ -57,10 +61,7 @@ function Destination() {
             <motion.h2
               key={currentPlanet.name + "-title"}
               className="text-center text-6xl lg:text-8xl font-bellefair uppercase my-[8%] lg:my-[4%]"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.5 }}
+              {...animation}
             >
               {currentPlanet.name}
             </motion.h2>
@@ -70,10 +71,7 @@ function Destination() {
               key={currentPlanet.name + "-desc"}
               className="max-w-[50ch] text-center text-xl font-condensed text-[hsl(var(--clr-blue))]
                 lg:text-left lg:text-lg"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.4, delay: 0.2 }}
+                {...animation}
             >
               {currentPlanet.description}
             </motion.p>
@@ -83,10 +81,7 @@ function Destination() {
             <AnimatePresence mode="wait">
               <motion.div
                 key={currentPlanet.distance + "-desc"}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.4, delay: 0.2 }}
+                {...animation}
                 className="flex flex-col text-center lg:text-left"
               >
                 <p className="uppercase text-xl  font-condensed text-[hsl(var(--clr-blue))]">
@@ -100,10 +95,7 @@ function Destination() {
             <AnimatePresence mode="wait">
               <motion.div
                 key={currentPlanet.travel + "-desc"}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.4, delay: 0.2 }}
+                {...animation}
                 className="flex flex-col text-center lg:text-left"
               >
                 <p className="uppercase text-xl font-condensed text-[hsl(var(--clr-blue))]">
