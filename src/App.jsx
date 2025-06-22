@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
 import Layout from './components/Layout';
 import FallBack from './components/FallBack';
+import HomePage from './components/HomePage';
 
-const HomePage = lazy(() => import('./components/HomePage'));
 const Destination = lazy(() => import('./components/Destination'));
 const Crew = lazy(() => import('./components/Crew'));
 const Technology = lazy(() =>import('./components/Technology'));
