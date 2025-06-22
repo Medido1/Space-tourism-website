@@ -23,9 +23,8 @@ function HomePage() {
               because we’ll give you a truly out of this world experience!
             </p>
           </div>
-          <button className="flex justify-center items-center px-10 py-16
-            rounded-[50%] aspect-square text-black bg-white mt-40 sm:mt-20 text-lg sm:text-3xl
-            xl:text-4xl">
+          <button className="text-black bg-white mt-40 sm:mt-20 text-lg sm:text-2xl
+             large-button cursor-pointer">
             <a className="uppercase tracking-widest" href="">Explore</a>
           </button>
         </div>
