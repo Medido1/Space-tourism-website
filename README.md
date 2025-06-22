@@ -1,12 +1,61 @@
-# React + Vite
+# Frontend Mentor - Space tourism website solution
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a solution to the [Space tourism website challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/space-tourism-multipage-website-gRWj1URZ3). 
 
-Currently, two official plugins are available:
+## Table of contents
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Links](#links)
+  - [Screenshot](#screenshot)
+- [My process](#my-process)
+  - [Built with](#built-with)
+- [Author](#author)
 
-## Expanding the ESLint configuration
+## Overview
+### The challenge
+Users should be able to:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- View the optimal layout for each of the website's pages depending on their device's screen size
+- See hover states for all interactive elements on the page
+- View each page and be able to toggle between the tabs to see new information
+### Links
+
+- Solution URL: [solution](https://github.com/Medido1/Space-tourism-website)
+- Live Site URL: [live site](https://spacetourismwebsitefront.netlify.app/)
+
+### Screenshot
+  # Desktop
+  ## Home 
+  ![](/public/screenshots/HomeDesktop.png)
+  ## Destination 
+  ![](/public/screenshots/destinationDesktop.png)
+  ## Crew
+  ![](/public/screenshots/crewdesktop.png)
+  ## Technologie
+  ![](/public/screenshots/technoDesk.png)
+
+   #Mobile
+  ## Home 
+  ![](/public/screenshots/homeMobile.png)
+  ## Destination 
+  ![](/public/screenshots/DestinationMobile.png)
+  ## Crew
+  ![](/public/screenshots/crewMobile.png)
+  ## Technologie
+  ![](/public/screenshots/technoMobile.png)
+## My process
+
+### Built with
+
+- React
+- Tailwindcss
+- Flexbox
+- Grid
+- Mobile-first workflow
+- Vanilla css
+
+## Author
+
+- Frontend Mentor - [@Medido1](https://www.frontendmentor.io/profile/Medido1)
+- GitHub - [@Medido1](https://github.com/Medido1)
