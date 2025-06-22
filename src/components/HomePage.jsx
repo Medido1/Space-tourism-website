@@ -1,14 +1,15 @@
 import { motion, AnimatePresence } from "framer-motion";
 
 function HomePage() {
+  const animation = {
+    initial: { opacity: 0, scale: 0.9 },
+    animate: { opacity: 1, scale: 1 },
+    exit: { opacity: 0, scale: 0.9 },
+    transition: { duration: 0.5 }
+  }
   return (
     <AnimatePresence>
-      <motion.div
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
-        exit={{ opacity: 0, scale: 0.9 }}
-        transition={{ duration: 0.5 }}
-      >
+      <motion.div {...animation}>
         <div className="mt-10 sm:mt-20 flex flex-col items-center
           lg:mt-[7%] 2xl:mt-[14%] lg:flex-row lg:justify-between lg:px-[10%] lg:pb-[5%]">
           <div>
@@ -25,7 +26,7 @@ function HomePage() {
           </div>
           <button className="text-black bg-white mt-40 sm:mt-20 text-lg sm:text-2xl
              large-button cursor-pointer">
-            <a className="uppercase tracking-widest" href="">Explore</a>
+            <a className="uppercase tracking-widest" href="#">Explore</a>
           </button>
         </div>
       </motion.div>
