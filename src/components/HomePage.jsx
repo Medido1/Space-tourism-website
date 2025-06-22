@@ -11,7 +11,7 @@ function HomePage() {
     <AnimatePresence>
       <motion.div {...animation}>
         <div className="mt-10 sm:mt-20 flex flex-col items-center
-          lg:mt-[7%] 2xl:mt-[14%] lg:flex-row lg:justify-between lg:px-[10%] lg:pb-[5%]">
+          lg:mt-[7%] 2xl:mt-[14%] lg:flex-row lg:justify-between lg:px-[10%] pb-[7%]">
           <div>
             <h1 className="text-center text-xl xl:text-2xl text-[hsl(var(--clr-blue))] uppercase tracking-widest
             font-condensed mb-4 lg:text-left">
