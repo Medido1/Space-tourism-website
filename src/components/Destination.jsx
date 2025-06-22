@@ -27,7 +27,7 @@ function Destination() {
         <span className="mr-6 text-gray-600">01</span>
         Pick your destination
       </h2>
-      <div className="lg:flex lg:justify-center lg:gap-36 lg:w-full">
+      <div className="lg:flex lg:justify-center lg:gap-36 lg:w-full px-4">
         <AnimatePresence mode="wait">
           <motion.img
             key={currentPlanet.name}

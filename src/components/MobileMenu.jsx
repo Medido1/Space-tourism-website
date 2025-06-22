@@ -63,7 +63,8 @@ function MobileMenu() {
               <span className={currentSpanStyle}>02</span>Crew
             </Link>
             <Link
-              className={currentLinkStyle}
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className={`${currentLinkStyle} ${pathname === "/technology" && !isMobile ? "border-b-2" : ""}`}
               to="/technology">
               <span className={currentSpanStyle}>03</span>Technology
             </Link>

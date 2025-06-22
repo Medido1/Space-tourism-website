@@ -12,7 +12,10 @@ import bgDestiTab from "/assets/destination/background-destination-tablet.jpg";
 import bgDestiDesktop from "/assets/destination/background-destination-desktop.jpg";
 import bgCrewMobile from "/assets/crew/background-crew-mobile.jpg";
 import bgCrewTab from "/assets/crew/background-crew-tablet.jpg";
-import bgCrewDesk from "/assets/crew/background-crew-desktop.jpg"
+import bgCrewDesk from "/assets/crew/background-crew-desktop.jpg";
+import bgTechMoble from "/assets/technology/background-technology-mobile.jpg";
+import bgTechTab from "/assets/technology/background-technology-tablet.jpg";
+import bgTechDesk from "/assets/technology/background-technology-desktop.jpg"
 
 function Layout() {
   const {pathname} = useLocation()
@@ -39,6 +42,12 @@ function Layout() {
       : isTablet 
       ? bgCrewTab
       :bgCrewDesk
+    } else if (pathname === "/technology") {
+      img = isMobile
+      ? bgTechMoble
+      : isTablet 
+      ? bgTechTab
+      : bgTechDesk
     }
 
     setBgImage(img)
@@ -46,11 +55,12 @@ function Layout() {
   return (
     <div
         style={{backgroundImage: `url(${bgImage})`}} 
-        className="p-8 min-h-screen bg-cover bg-center text-white relative lg:p-10
-      ">
-        <Header />
+        className="min-h-screen bg-cover bg-center text-white relative">
+        <div className="p-8 lg:p-10">
+          <Header />
+          <MobileMenu />
+        </div>
         <Outlet />
-        <MobileMenu />
     </div>
   )
 }

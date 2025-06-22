@@ -15,7 +15,7 @@ function Crew() {
       </h2>
       <AnimatePresence mode="wait">
         <motion.div
-          className="mt-[20%] lg:flex  lg:mt-0 lg:w-[80%]"
+          className="mt-[20%] lg:flex  lg:mt-0 lg:w-[80%] px-4"
           key={currentCrewMember.name}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
