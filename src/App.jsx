@@ -12,7 +12,7 @@ const Technology = lazy(() =>import('./components/Technology'));
 function App() {
   return (
     <Router>
-        <Suspense fallback={<div>Loading ...</div>}>
+        <Suspense>
           <Routes>
             <Route path='/' element={<Layout/>}>
               <Route index element={<HomePage />}/>
