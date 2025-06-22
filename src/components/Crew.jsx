@@ -6,6 +6,13 @@ function Crew() {
   const {data} = useContext(GlobalContext)
   const crew = data?.crew || [];
   const [currentCrewMember, setCurrentCrewMember] = useState(crew ?crew[0] : {});
+
+  const animation = {
+    initial: {opacity: 0, y: 20 },
+    animate: {opacity: 1, y: 0 },
+    exit: {opacity: 0, y: -20 },
+    transition: { duration: 0.5, ease: "easeInOut", delay: .2 },
+  }
   return (
     <div className="flex flex-col items-center mt-[20%] lg:mt-[4%]">
       <h2 className="sm:self-start font-condensed  text-2xl uppercase text-gray-200 tracking-widest
@@ -17,10 +24,7 @@ function Crew() {
         <motion.div
           className="mt-[20%] lg:flex  lg:mt-0 lg:w-[80%] px-4"
           key={currentCrewMember.name}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -20 }}
-          transition={{ duration: 0.5, ease: "easeInOut", delay: .2 }}
+          {...animation}
         >
           <div className="flex flex-col items-center lg:items-start lg:mt-[10%]">
             <h2
@@ -41,10 +45,11 @@ function Crew() {
               {currentCrewMember.bio}
             </p>
             <ul className="flex gap-4 lg:gap-8">
-              {crew.map((member, index) =>
+              {crew.map((member) =>
               <li
                 key={member.name}
-                onClick={() => setCurrentCrewMember(crew[index])}
+                onClick={() => setCurrentCrewMember(member)}
+                aria-label={`Select ${member.name}`}
                 className= {`p-2 aspect-square rounded-[50%] mb-[50%] cursor-pointer hover:bg-white
                 ${currentCrewMember.name === member.name ? "bg-white" : "bg-gray-400"} `}
               >
